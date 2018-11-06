@@ -28,7 +28,11 @@ Please follow the *README.md* to organize the datasets
 .
 ├── README.md
 ├── data
-│   └── README.md
+│   ├── ImageCLEF
+│   ├── Office31
+│   ├── OfficeHome
+│   ├── README.md
+│   └── Visda2017
 ├── partial
 │   ├── OfficeHome
 │   │   ├── HAFN

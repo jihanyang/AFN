@@ -10,7 +10,7 @@ target=('Clipart' 'Product' 'Real_World' 'Art' 'Product' 'Real_World' 'Art' 'Cli
 data_root='/data/da/data/OfficeHome/OfficeHomeDataset_10072016'
 snapshot='/data/da/partial/OfficeHome/HAFN/snapshot'
 result='/home/xuruijia/yjh/domain_adaptation/partial/OfficeHome/HAFN/result'
-epoch=150
+epoch=120
 gpu_id='2'
 
 for((index=0; index < 12; index++))

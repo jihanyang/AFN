@@ -22,7 +22,7 @@ Please reorganize the images and label lists as following directory tree.
 
 ## Office-31
 
-You can download the origin image [here](https://people.eecs.berkeley.edu/~jhoffman/domainadapt/). Our label files are replaced the absolute path  [here](https://github.com/thuml/PADA/tree/master/pytorch/data/office) to relative path.
+You can download the origin image [here](https://people.eecs.berkeley.edu/~jhoffman/domainadapt/). Our label files are replaced the absolute path  [here](https://github.com/thuml/Xlearn/tree/master/pytorch/data/office) to relative path.
 
 Please reorganize the images and label lists as following directory tree.
 
@@ -68,7 +68,6 @@ You can download this dataset [here](https://github.com/VisionLearningGroup/task
 ```latex
 .
 |-- train
-|-- train6_list.txt
 |-- train_list.txt
 |-- validation
 |-- validation6_list.txt
