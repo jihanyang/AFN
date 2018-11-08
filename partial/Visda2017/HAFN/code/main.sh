@@ -1,7 +1,7 @@
 #!/bin/bash
 
-post='2'
-repeat='3'
+post='1'
+repeat='1'
 
 data_root='/data/da/data/Visda2017'
 snapshot='/data/da/partial/Visda2017/HAFN/snapshot'

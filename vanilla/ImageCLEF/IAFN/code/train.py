@@ -15,8 +15,8 @@ from model import ResBase50, ResClassifier
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_root", default="")
-parser.add_argument("--source", default="p")
-parser.add_argument("--target", default="i")
+parser.add_argument("--source", default="")
+parser.add_argument("--target", default="")
 parser.add_argument("--batch_size", default=32)
 parser.add_argument("--shuffle", default=True)
 parser.add_argument("--num_workers", default=4)
@@ -27,7 +27,7 @@ parser.add_argument("--class_num", default=12)
 parser.add_argument("--extract", default=True)
 parser.add_argument("--weight_L2norm", default=0.05)
 parser.add_argument("--dropout_p", default=0.5)
-parser.add_argument("--task", default='None', type=str)
+parser.add_argument("--task", default='', type=str)
 parser.add_argument("--post", default='-1', type=str)
 parser.add_argument("--repeat", default='-1', type=str)
 args = parser.parse_args()
@@ -110,6 +110,7 @@ for epoch in range(1, args.epoch + 1):
 
         opt_g.step()
         opt_f.step()
-       
-    torch.save(netG.state_dict(), os.path.join(args.snapshot, "ImageCLEF_" + args.task + "_netG_" + args.post + '.' + args.repeat + '_'  + str(epoch) + ".pth"))
-    torch.save(netF.state_dict(), os.path.join(args.snapshot, "ImageCLEF_" + args.task + "_netF_" + args.post + '.' + args.repeat + '_'  + str(epoch) + ".pth"))
+
+    if epoch % 10 == 0:   
+        torch.save(netG.state_dict(), os.path.join(args.snapshot, "ImageCLEF_IAFN_" + args.task + "_netG_" + args.post + '.' + args.repeat + '_'  + str(epoch) + ".pth"))
+        torch.save(netF.state_dict(), os.path.join(args.snapshot, "ImageCLEF_IAFN_" + args.task + "_netF_" + args.post + '.' + args.repeat + '_'  + str(epoch) + ".pth"))

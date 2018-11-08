@@ -12,7 +12,7 @@ from model import ResBase50, ResClassifier
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_root", default="")
-parser.add_argument("--target", default="i")
+parser.add_argument("--target", default="")
 parser.add_argument("--batch_size", default=64)
 parser.add_argument("--shuffle", default=False)
 parser.add_argument("--num_workers", default=8)
@@ -26,7 +26,7 @@ parser.add_argument("--repeat", default='-1', type=str)
 args = parser.parse_args()
 print_args(args)
 
-result = open(os.path.join(args.result, "ImageCLEF_" + args.task +  '_' + args.post + '.' + args.repeat + "_score.txt"), "a")
+result = open(os.path.join(args.result, "ImageCLEF_HAFN_" + args.task + '_' + args.post + '.' + args.repeat + "_score.txt"), "a")
 
 t_root = args.data_root
 t_label = os.path.join(args.data_root, args.target + "List.txt")
@@ -49,8 +49,8 @@ netF.eval()
 for epoch in range(args.epoch/2, args.epoch + 1):
     if epoch % 10 != 0:
         continue
-    netG.load_state_dict(torch.load(os.path.join(args.snapshot, "ImageCLEF_" + args.task + "_netG_" + args.post + "." + args.repeat + "_" + str(epoch) + ".pth")))
-    netF.load_state_dict(torch.load(os.path.join(args.snapshot, "ImageCLEF_" + args.task + "_netF_" + args.post + "." + args.repeat + "_" + str(epoch) + ".pth")))
+    netG.load_state_dict(torch.load(os.path.join(args.snapshot, "ImageCLEF_HAFN_" + args.task + "_netG_" + args.post + "." + args.repeat + "_" + str(epoch) + ".pth")))
+    netF.load_state_dict(torch.load(os.path.join(args.snapshot, "ImageCLEF_HAFN_" + args.task + "_netF_" + args.post + "." + args.repeat + "_" + str(epoch) + ".pth")))
     correct = 0
     tick = 0
     for (imgs, labels) in t_loader:

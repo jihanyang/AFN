@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# usage:
-#   ./main.sh [post(any content to record the conducted experiment)]
-post='12'
+post='1'
 repeat='1'
 
 data_root='/data/da/data/Visda2017'

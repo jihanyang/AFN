@@ -1,7 +1,7 @@
 #!/bin/bash
 
 post='1'
-repeat='3'
+repeat='1'
 
 task=('Ar->Cl' 'Ar->Pr' 'Ar->Rw' 'Cl->Ar' 'Cl->Pr' 'Cl->Rw' 'Pr->Ar' 'Pr->Cl' 'Pr->Rw' 'Rw->Ar' 'Rw->Cl' 'Rw->Pr')
 source=('Art' 'Art' 'Art' 'Clipart' 'Clipart' 'Clipart' 'Product' 'Product' 'Product' 'Real_World' 'Real_World' 'Real_World')

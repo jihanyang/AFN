@@ -22,7 +22,7 @@ parser.add_argument("--batch_size", default=32)
 parser.add_argument("--shuffle", default=True)
 parser.add_argument("--num_workers", default=4)
 parser.add_argument("--pre_epoches", default=60, type=int)
-parser.add_argument("--epoch", default=-1, type=int)
+parser.add_argument("--epoch", default=120, type=int)
 parser.add_argument("--snapshot", default="")
 parser.add_argument("--lr", default=0.001)
 parser.add_argument("--class_num", default=65)
@@ -76,7 +76,7 @@ def get_L2norm_loss_self_driven(x):
 
 opt_g = optim.SGD(netG.parameters(), lr=args.lr, weight_decay=0.0005)
 opt_f = optim.SGD(netF.parameters(), lr=args.lr, momentum=0.9, weight_decay=0.0005)
-for epoch in range(args.pre_epoches):
+for epoch in range(1, args.pre_epoches + 1):
     for i, (s_imgs, s_labels) in tqdm.tqdm(enumerate(source_loader)):
         if s_imgs.size(0) != args.batch_size:
             continue
@@ -135,7 +135,8 @@ for epoch in range(1, args.epoch + 1):
 
         opt_g.step()
         opt_f.step()
-    
-    torch.save(netG.state_dict(), os.path.join(args.snapshot, "OfficeHome_HAFN_" + args.task + "_netG_" + args.post + "." + args.repeat + "_" + str(epoch) + ".pth"))
-    torch.save(netF.state_dict(), os.path.join(args.snapshot, "OfficeHome_HAFN_" + args.task + "_netF_" + args.post + "." + args.repeat + "_" + str(epoch) + ".pth"))
+
+    if epoch % 10 == 0:
+        torch.save(netG.state_dict(), os.path.join(args.snapshot, "OfficeHome_HAFN_" + args.task + "_netG_" + args.post + "." + args.repeat + "_" + str(epoch) + ".pth"))
+        torch.save(netF.state_dict(), os.path.join(args.snapshot, "OfficeHome_HAFN_" + args.task + "_netF_" + args.post + "." + args.repeat + "_" + str(epoch) + ".pth"))
 

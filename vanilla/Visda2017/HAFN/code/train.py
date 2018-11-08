@@ -21,7 +21,7 @@ parser.add_argument("--batch_size", default=32)
 parser.add_argument("--shuffle", default=True)
 parser.add_argument("--num_workers", default=8)
 parser.add_argument("--epoch", default=10, type=int)
-parser.add_argument("--pre_epoches", default=10)
+parser.add_argument("--pre_epoches", default=10, type=int)
 parser.add_argument("--snapshot", default="")
 parser.add_argument("--lr", default=0.001)
 parser.add_argument("--class_num", default=12)
@@ -80,7 +80,7 @@ def get_cls_loss(pred, gt):
 opt_g = optim.SGD(netG.parameters(), lr=args.lr, weight_decay=0.0005)
 opt_f = optim.SGD(netF.parameters(), lr=args.lr, momentum=0.9, weight_decay=0.0005)
 
-for epoch in range(args.pre_epoches):
+for epoch in range(1, args.pre_epoches + 1):
     for i, (s_imgs, s_labels) in tqdm.tqdm(enumerate(source_loader)):
         s_imgs = Variable(s_imgs.cuda())
         s_labels = Variable(s_labels.cuda())
@@ -100,8 +100,6 @@ for epoch in range(args.pre_epoches):
         opt_g.step()
         opt_f.step()
         
-    torch.save(netG.state_dict(), os.path.join(args.snapshot, "VisDA_"+ args.model + "_netG_pre_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
-    torch.save(netF.state_dict(), os.path.join(args.snapshot, "VisDA_"+ args.model + "_netF_pre_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
 
 for epoch in range(1, args.epoch + 1):
     source_loader_iter = iter(source_loader)
@@ -132,6 +130,7 @@ for epoch in range(1, args.epoch + 1):
         opt_g.step()
         opt_f.step()
 
-    torch.save(netG.state_dict(), os.path.join(args.snapshot, "VisDA_"+ args.model + "_netG_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
-    torch.save(netF.state_dict(), os.path.join(args.snapshot, "VisDA_"+ args.model + "_netF_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
+    if epoch % 10 == 0:
+        torch.save(netG.state_dict(), os.path.join(args.snapshot, "VisDA_HAFN_"+ args.model + "_netG_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
+        torch.save(netF.state_dict(), os.path.join(args.snapshot, "VisDA_HAFN_"+ args.model + "_netF_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
 

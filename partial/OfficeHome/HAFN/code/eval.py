@@ -12,8 +12,8 @@ from model import ResBase50, ResClassifier
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_root", default="")
-parser.add_argument("--target", default="Product")
-parser.add_argument("--task", default="None")
+parser.add_argument("--target", default="")
+parser.add_argument("--task", default="")
 parser.add_argument("--batch_size", default=64)
 parser.add_argument("--shuffle", default=False)
 parser.add_argument("--num_workers", default=4)

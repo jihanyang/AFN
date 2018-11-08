@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# usage:
-#   ./main.sh [post(any content to record the conducted experiment)]
 post='1'
-repeat='3'
+repeat='1'
 
 data_root='/data/da/data/Visda2017'
 snapshot='/data/da/partial/Visda2017/SIAFN_ES/snapshot'

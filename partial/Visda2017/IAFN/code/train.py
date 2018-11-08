@@ -113,6 +113,6 @@ for epoch in range(1, args.epoch +1):
 
         opt_g.step()
         opt_f.step()
-       
-    torch.save(netG.state_dict(), os.path.join(args.snapshot, "VisDA_resnet50_netG_par_" + args.post + '.' + str(args.repeat) + '_' + str(epoch)  + ".pth"))
-    torch.save(netF.state_dict(), os.path.join(args.snapshot, "VisDA_resnet50_netF_par_" + args.post + '.' + str(args.repeat) + '_' + str(epoch)  + ".pth"))
+    if epoch % 10 == 0:   
+        torch.save(netG.state_dict(), os.path.join(args.snapshot, "VisDA_IAFN_" + args.post + '.' + str(args.repeat) + '_' + str(epoch)  + ".pth"))
+        torch.save(netF.state_dict(), os.path.join(args.snapshot, "VisDA_IAFN_" + args.post + '.' + str(args.repeat) + '_' + str(epoch)  + ".pth"))

@@ -5,7 +5,7 @@ source=('amazon' 'dslr' 'webcam' 'amazon' 'dslr' 'webcam')
 target=('webcam' 'webcam' 'dslr' 'dslr' 'amazon' 'amazon')
 
 post='1'
-repeat='3'
+repeat='1'
 data_root='/data/da/data/Office31'
 snapshot='/data/da/vanilla/Office31/HAFN/snapshot'
 result='/home/xuruijia/yjh/domain_adaptation/vanilla/Office31/HAFN/result'

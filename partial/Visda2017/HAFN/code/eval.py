@@ -12,7 +12,7 @@ from model import ResBase101, ResClassifier, ResBase50
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_root", default="")
-parser.add_argument("--t", default="validation")
+parser.add_argument("--target", default="validation")
 parser.add_argument("--batch_size", default=64)
 parser.add_argument("--shuffle", default=False)
 parser.add_argument("--num_workers", default=8)
@@ -26,10 +26,10 @@ parser.add_argument("--repeat", default='-1', type=str)
 args = parser.parse_args()
 print_args(args)
 
-result = open(os.path.join(args.result, args.model + "_" + args.t + '_' + args.post + '.' + args.repeat + "_score.txt"), "a")
+result = open(os.path.join(args.result, "VisDA_HAFN_" + args.target + '_' + args.post + '.' + args.repeat + "_score.txt"), "a")
 
-t_root = os.path.join(args.data_root, args.t)
-t_label = os.path.join(args.data_root, args.t + "6_list.txt")
+t_root = os.path.join(args.data_root, args.target)
+t_label = os.path.join(args.data_root, args.target + "6_list.txt")
 
 data_transform = transforms.Compose([
     transforms.Scale((256, 256)),
@@ -54,8 +54,10 @@ netG.eval()
 netF.eval()
 
 for epoch in range(1, args.epoch +1):
-    netG.load_state_dict(torch.load(os.path.join(args.snapshot, "VisDA_"+ args.model + "_netG_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth")))
-    netF.load_state_dict(torch.load(os.path.join(args.snapshot, "VisDA_"+ args.model + "_netF_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth")))
+    if epoch % 10 != 0:
+        continue
+    netG.load_state_dict(torch.load(os.path.join(args.snapshot, "VisDA_HAFN_"+ args.model + "_netG_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth")))
+    netF.load_state_dict(torch.load(os.path.join(args.snapshot, "VisDA_HAFN_"+ args.model + "_netF_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth")))
     correct = 0
     tick = 0
     for (imgs, labels) in t_loader:

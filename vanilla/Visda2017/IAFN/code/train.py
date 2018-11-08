@@ -36,7 +36,7 @@ print_args(args)
 source_root = os.path.join(args.data_root, args.source)
 source_label = os.path.join(args.data_root, args.source + "_list.txt")
 target_root = os.path.join(args.data_root, args.target)
-target_label = os.path.join(args.data_root, args.target + "_list" + ".txt")
+target_label = os.path.join(args.data_root, args.target + "_list.txt")
 train_transform = transforms.Compose([
     transforms.Scale((256, 256)),
     transforms.CenterCrop((224, 224)),
@@ -106,6 +106,7 @@ for epoch in range(1, args.epoch+1):
 
         opt_g.step()
         opt_f.step()
-       
-    torch.save(netG.state_dict(), os.path.join(args.snapshot, "VisDA_"+ args.model + "_netG_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
-    torch.save(netF.state_dict(), os.path.join(args.snapshot, "VisDA_"+ args.model + "_netF_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
+        
+    if epoch % 10 == 0:   
+        torch.save(netG.state_dict(), os.path.join(args.snapshot, "VisDA_IAFN_"+ args.model + "_netG_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))
+        torch.save(netF.state_dict(), os.path.join(args.snapshot, "VisDA_IAFN_"+ args.model + "_netF_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth"))

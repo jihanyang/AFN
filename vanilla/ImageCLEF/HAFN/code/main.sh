@@ -5,7 +5,7 @@ source=('i' 'p' 'i' 'c' 'c' 'p')
 target=('p' 'i' 'c' 'i' 'p' 'c')
 
 post='1'
-repeat='3'
+repeat='1'
 data_root='/data/da/data/ImageCLEF'
 snapshot='/data/da/vanilla/ImageCLEF/HAFN/snapshot'
 result='/home/xuruijia/yjh/domain_adaptation/vanilla/ImageCLEF/HAFN/result'

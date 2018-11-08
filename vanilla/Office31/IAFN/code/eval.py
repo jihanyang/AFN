@@ -12,7 +12,7 @@ from model import ResBase50, ResClassifier
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_root", default="")
-parser.add_argument("--target", default="webcam")
+parser.add_argument("--target", default="")
 parser.add_argument("--batch_size", default=32)
 parser.add_argument("--shuffle", default=False)
 parser.add_argument("--num_workers", default=4)
@@ -22,13 +22,13 @@ parser.add_argument("--result", default="")
 parser.add_argument("--class_num", default=31)
 parser.add_argument("--extract", default=False)
 parser.add_argument("--dropout_p", default=0.5)
-parser.add_argument("--task", default='None', type=str)
+parser.add_argument("--task", default='', type=str)
 parser.add_argument("--post", default='-1', type=str)
 parser.add_argument("--repeat", default='-1', type=str)
 args = parser.parse_args()
 print_args(args)
 
-result = open(os.path.join(args.result, "Office31_" + args.task + '_' + args.post + '.' + args.repeat + "_score.txt"), "a")
+result = open(os.path.join(args.result, "Office31_IAFN_" + args.task + '_' + args.post + '.' + args.repeat + "_score.txt"), "a")
 
 t_root = os.path.join(args.data_root, args.target, "images")
 t_label = os.path.join(args.data_root, args.target, "label.txt")
@@ -41,7 +41,7 @@ data_transform = transforms.Compose([
     ])
 
 t_set = OfficeImage(t_root, t_label, data_transform)
-# assert len(t_set) == 795
+
 t_loader = torch.utils.data.DataLoader(t_set, batch_size=args.batch_size,
     shuffle=args.shuffle, num_workers=args.num_workers)
 
@@ -54,8 +54,8 @@ netF.eval()
 for epoch in range(args.epoch/2, args.epoch +1):
     if epoch % 10 != 0:
         continue
-    netG.load_state_dict(torch.load(os.path.join(args.snapshot, "Office31_" + args.task + "_netG_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth")))
-    netF.load_state_dict(torch.load(os.path.join(args.snapshot, "Office31_" + args.task + "_netF_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth")))
+    netG.load_state_dict(torch.load(os.path.join(args.snapshot, "Office31_IAFN_" + args.task + "_netG_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth")))
+    netF.load_state_dict(torch.load(os.path.join(args.snapshot, "Office31_IAFN_" + args.task + "_netF_" + args.post + '.' + args.repeat + '_' + str(epoch) + ".pth")))
     correct = 0
     tick = 0
     for (imgs, labels) in t_loader:
