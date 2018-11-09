@@ -8,8 +8,8 @@ source=('i' 'p' 'i' 'c' 'c' 'p')
 target=('p' 'i' 'c' 'i' 'p' 'c')
 
 data_root='/data/da/data/ImageCLEF'
-snapshot='/data/da/vanilla/ImageCLEF/IAFN_ES/snapshot'
-result='/home/xuruijia/yjh/domain_adaptation/vanilla/ImageCLEF/IAFN_ES/result'
+snapshot='/data/da/vanilla/ImageCLEF/IAFN/snapshot'
+result='/home/xuruijia/yjh/domain_adaptation/vanilla/ImageCLEF/IAFN/result'
 epoch=100
 gpu_id='6'
 

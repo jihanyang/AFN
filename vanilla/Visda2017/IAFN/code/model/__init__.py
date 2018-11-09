@@ -1,1 +1,1 @@
-from .net import ResBase101, ResBase50, ResClassifier, ResClassifier1, ResClassifier2
+from .net import ResBase101, ResBase50, ResClassifier

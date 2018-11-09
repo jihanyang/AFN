@@ -4,8 +4,8 @@ post='1'
 repeat='1'
 
 data_root='/data/da/data/Visda2017'
-snapshot='/data/da/vanilla/Visda2017/IAFN_ES/snapshot'
-result='/home/xuruijia/yjh/domain_adaptation/vanilla/Visda2017/IAFN_ES/result'
+snapshot='/data/da/vanilla/Visda2017/IAFN/snapshot'
+result='/home/xuruijia/yjh/domain_adaptation/vanilla/Visda2017/IAFN/result'
 epoch=50
 model='resnet101'
 gpu_id='5'

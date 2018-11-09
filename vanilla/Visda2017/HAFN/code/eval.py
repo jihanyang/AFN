@@ -8,7 +8,7 @@ from torchvision import transforms
 from torch.autograd import Variable
 
 from utils import VisDAImage, print_args
-from model import ResBase101, ResClassifier, ResBase50, ResClassifier1, ResClassifier2
+from model import ResBase101, ResClassifier, ResBase50
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_root", default="")

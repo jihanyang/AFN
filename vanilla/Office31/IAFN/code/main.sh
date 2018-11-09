@@ -8,8 +8,8 @@ source=('amazon' 'dslr' 'webcam' 'amazon' 'dslr' 'webcam')
 target=('webcam' 'webcam' 'dslr' 'dslr' 'amazon' 'amazon')
 
 data_root='/data/da/data/Office31'
-snapshot='/data/da/vanilla/Office31/IAFN_ES/snapshot'
-result='/home/xuruijia/yjh/domain_adaptation/vanilla/Office31/IAFN_ES/result'
+snapshot='/data/da/vanilla/Office31/IAFN/snapshot'
+result='/home/xuruijia/yjh/domain_adaptation/vanilla/Office31/IAFN/result'
 epoch=100
 gpu_id='7'
 

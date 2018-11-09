@@ -102,7 +102,7 @@ for epoch in range(1, args.pre_epoches + 1):
 for epoch in range(1, args.epoch + 1):
     source_loader_iter = iter(source_loader)
     target_loader_iter = iter(target_loader)
-    print(">>training " + args.task + "epoch : " + str(epoch))
+    print(">>training " + args.task + " epoch : " + str(epoch))
     
     for i, (t_imgs, _) in tqdm.tqdm(enumerate(target_loader_iter)):
         try:

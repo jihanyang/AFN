@@ -51,8 +51,8 @@ for epoch in range(args.epoch/2, args.epoch + 1):
     if epoch % 10 != 0:
         continue
     
-    netG.load_state_dict(torch.load(os.path.join(args.snapshot, "VisDA_IAFN_" + args.post + '.' + str(args.repeat) + '_'  + str(epoch) + ".pth")))
-    netF.load_state_dict(torch.load(os.path.join(args.snapshot, "VisDA_IAFN_" + args.post + '.' + str(args.repeat) + '_'  + str(epoch) + ".pth")))
+    netG.load_state_dict(torch.load(os.path.join(args.snapshot, "VisDA_IAFN_netG_" + args.post + '.' + str(args.repeat) + '_'  + str(epoch) + ".pth")))
+    netF.load_state_dict(torch.load(os.path.join(args.snapshot, "VisDA_IAFN_netF_" + args.post + '.' + str(args.repeat) + '_'  + str(epoch) + ".pth")))
 
     correct = 0
     tick = 0
