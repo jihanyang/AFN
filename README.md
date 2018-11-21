@@ -22,7 +22,7 @@ Please follow the *README.md* in subfolder `Data` to organize the datasets
 
 - According to the hierarchy in following block, enter corresponding setting ,dataset and method folder.
 - Modify parameters:  `data_root`,  `result` and `snapshot`  in  `main.sh`，and can switch model through changing `model`. 
-- If you want to run the IAFN+ENT mothod on *Office-Home* or *ImageCLEF-DA*, you have to modify the command `CUDA_VISIBLE_DEVICES=${gpu_id} python train.py \` to `CUDA_VISIBLE_DEVICES=${gpu_id} python train_ent.py \`
+- If you want to run the IAFN+ENT mothod on *Office-31* or *ImageCLEF-DA*, you have to modify the command `CUDA_VISIBLE_DEVICES=${gpu_id} python train.py \` to `CUDA_VISIBLE_DEVICES=${gpu_id} python train_ent.py \`
 - run `bash main.sh` in your terminal
 
 ```latex
