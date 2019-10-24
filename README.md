@@ -1,6 +1,6 @@
 # AFN
 
-PyTorch implementation for *Unsupervised Domain Adaptation: An Adaptive Feature Norm Approach*.
+PyTorch implementation for *Larger Norm More Transferable: An Adaptive Feature Norm Approach for Unsupervised Domain Adaptation*.
 
 ## Requirements
 
@@ -14,9 +14,9 @@ PyTorch implementation for *Unsupervised Domain Adaptation: An Adaptive Feature 
 
 ## Datasets
 
-Please follow the *README.md* in subfolder `Data` to organize the datasets
+Please follow the *README.md* in subfolder `Data` to organize datasets
 
-## Trainning and Evaluation
+## Training and Evaluation
 
 - Make sure you have organized datasets and satisfied the requirements.
 
@@ -37,23 +37,23 @@ Please follow the *README.md* in subfolder `Data` to organize the datasets
 ├── partial
 │   ├── OfficeHome
 │   │   ├── HAFN
-│   │   └── IAFN
+│   │   └── SAFN
 │   ├── README.md
 │   └── Visda2017
 │       ├── HAFN
-│       └── IAFN
+│       └── SAFN
 ├── resources
 └── vanilla
     ├── ImageCLEF
     │   ├── HAFN
-    │   └── IAFN
+    │   └── SAFN
     ├── Office31
     │   ├── HAFN
-    │   └── IAFN
+    │   └── SAFN
     ├── README.md
     └── Visda2017
         ├── HAFN
-        └── IAFN
+        └── SAFN
 ```
 
 Here are some description of parameters :
@@ -66,3 +66,18 @@ Here are some description of parameters :
 - `gpu_id` : the GPU ID to run experiments.
 - `model` : switch model between `resnet101` and `resnet50`
 
+
+
+## Citation
+
+If you use AFN in your research, please consider citing:
+
+```Latex
+@InProceedings{Xu_2019_ICCV,
+author = {Xu, Ruijia and Li, Guanbin and Yang, Jihan and Lin, Liang},
+title = {Larger Norm More Transferable: An Adaptive Feature Norm Approach for Unsupervised Domain Adaptation},
+booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+month = {October},
+year = {2019}
+}
+```

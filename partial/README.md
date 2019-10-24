@@ -2,7 +2,7 @@
 
 ## Office-Home
 
-### IAFN
+### SAFN
 
 | Repeat | Ar->Cl | Ar->Pr | Ar->Rw | Cl->Ar | Cl->Pr | Cl->Rw |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
